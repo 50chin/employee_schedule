@@ -19,8 +19,8 @@ document.getElementById("applyFilter").addEventListener("click", applyFilters);
 
 async function getData() {
   try {
-    const plan = await fetch("../data/plan.json").then((res) => res.json());
-    const fact = await fetch("../data/fact.json").then((res) => res.json());
+    const plan = await fetch("public/data/plan.json").then((res) => res.json());
+    const fact = await fetch("public/data/fact.json").then((res) => res.json());
     fullData = mergeData(plan, fact);
     applyFilters();
   } catch (err) {
