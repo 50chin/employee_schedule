@@ -19,22 +19,12 @@ document.getElementById("applyFilter").addEventListener("click", applyFilters);
 
 async function getData() {
   try {
-    const [plan, fact] = await Promise.all([
-      fetch("../src/data/plan.json").then((res) => {
-        if (!res.ok) throw new Error("Не удалось загрузить plan.json");
-        return res.json();
-      }),
-      fetch("../src/data/fact.json").then((res) => {
-        if (!res.ok) throw new Error("Не удалось загрузить fact.json");
-        return res.json();
-      }),
-    ]);
-
+    const plan = await fetch("/src/data/plan.json").then((res) => res.json());
+    const fact = await fetch("/src/data/fact.json").then((res) => res.json());
     fullData = mergeData(plan, fact);
     applyFilters();
   } catch (err) {
     console.error("Ошибка загрузки данных:", err);
-    alert("Ошибка загрузки данных: " + err.message);
   }
 }
 
