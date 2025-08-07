@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>График работы сотрудников</title>
+    <link rel="stylesheet" href="./src/style/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3"></script>
+    <script src="./src/script/app.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>График работы сотрудников</h1>
+
+      <div class="filters">
+        <div class="filter-group">
+          <label for="startDate">Начальная дата:</label>
+          <input type="date" id="startDate" />
+        </div>
+
+        <div class="filter-group">
+          <label for="endDate">Конечная дата:</label>
+          <input type="date" id="endDate" />
+        </div>
+
+        <button id="applyFilter">Применить фильтр</button>
+      </div>
+
+      <div class="chart-container">
+        <canvas id="scheduleChart"></canvas>
+      </div>
+    </div>
+  </body>
+</html>
